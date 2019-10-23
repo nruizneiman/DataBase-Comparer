@@ -1,0 +1,6 @@
+F:\Projects\repos\DemosPortal\DatabaseComparer\bin\Debug\DatabaseComparer.exe.config
+F:\Projects\repos\DemosPortal\DatabaseComparer\bin\Debug\DatabaseComparer.exe
+F:\Projects\repos\DemosPortal\DatabaseComparer\bin\Debug\DatabaseComparer.pdb
+F:\Projects\repos\DemosPortal\DatabaseComparer\obj\Debug\DatabaseComparer.csprojAssemblyReference.cache
+F:\Projects\repos\DemosPortal\DatabaseComparer\obj\Debug\DatabaseComparer.exe
+F:\Projects\repos\DemosPortal\DatabaseComparer\obj\Debug\DatabaseComparer.pdb
