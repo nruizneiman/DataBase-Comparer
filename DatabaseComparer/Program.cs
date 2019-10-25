@@ -181,51 +181,51 @@ WHERE T.type_desc = 'USER_TABLE'; ";
             sw.WriteLine($" === [{masterDatabase}] analysis === ");
 
             #region Tablas, Columnas y tipos
-            //foreach (TableObject table in slaveSchema)
-            //{
-            //    Console.WriteLine($"Analizando [{table.Name}]");
+            foreach (TableObject table in slaveSchema)
+            {
+                Console.WriteLine($"Analizando [{table.Name}]");
 
-            //    if (!masterSchema.Any(x => x.Name.ToLower().Equals(table.Name.ToLower())))
-            //    {
-            //        Error = true;
+                if (!masterSchema.Any(x => x.Name.ToLower().Equals(table.Name.ToLower())))
+                {
+                    Error = true;
 
-            //        sw.WriteLine($"• Tabla faltante: [{table.Name}] en [{masterDatabase}]");
-            //        Console.WriteLine($"Tabla faltante: [{table.Name}] en [{masterDatabase}]");
-            //    }
-            //    else
-            //    {
-            //        foreach (ColumnObject column in table.Columns)
-            //        {
-            //            if (!masterSchema.Any(x => x.Columns.Any(y => y.Name.ToLower().Equals(column.Name.ToLower()))))
-            //            {
-            //                Error = true;
+                    sw.WriteLine($"• Tabla faltante: [{table.Name}] en [{masterDatabase}]");
+                    Console.WriteLine($"Tabla faltante: [{table.Name}] en [{masterDatabase}]");
+                }
+                else
+                {
+                    foreach (ColumnObject column in table.Columns)
+                    {
+                        if (!masterSchema.Any(x => x.Columns.Any(y => y.Name.ToLower().Equals(column.Name.ToLower()))))
+                        {
+                            Error = true;
 
-            //                sw.WriteLine($"• Columna faltante: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
-            //                Console.WriteLine($"Columna faltante: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
-            //            }
+                            sw.WriteLine($"• Columna faltante: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
+                            Console.WriteLine($"Columna faltante: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
+                        }
 
-            //            if (masterSchema.Any(x => x.Columns.Any(y => y.TableName.Equals(column.TableName)
-            //            && y.Name.Equals(column.Name)
-            //            && !y.ColumnType.Equals(column.ColumnType))))
-            //            {
-            //                Error = true;
+                        //if (masterSchema.Any(x => x.Columns.Any(y => y.TableName.Equals(column.TableName)
+                        //&& y.Name.Equals(column.Name)
+                        //&& !y.ColumnType.Equals(column.ColumnType))))
+                        //{
+                        //    Error = true;
 
-            //                sw.WriteLine($"• Tipo de dato diferente: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
-            //                Console.WriteLine($"Tipo de dato diferente: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
-            //            }
+                        //    sw.WriteLine($"• Tipo de dato diferente: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
+                        //    Console.WriteLine($"Tipo de dato diferente: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
+                        //}
 
-            //            if (masterSchema.Any(x => x.Columns.Any(y => y.TableName.Equals(column.TableName)
-            //            && y.Name.Equals(column.Name)
-            //            && !y.Size.Equals(column.Size))))
-            //            {
-            //                Error = true;
+                        //if (masterSchema.Any(x => x.Columns.Any(y => y.TableName.Equals(column.TableName)
+                        //&& y.Name.Equals(column.Name)
+                        //&& !y.Size.Equals(column.Size))))
+                        //{
+                        //    Error = true;
 
-            //                sw.WriteLine($"• Tamaño de dato diferente: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
-            //                Console.WriteLine($"Tamaño de dato diferente: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
-            //            }
-            //        }
-            //    }
-            //}
+                        //    sw.WriteLine($"• Tamaño de dato diferente: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
+                        //    Console.WriteLine($"Tamaño de dato diferente: [{column.Name}] ({column.ColumnType}({column.Size}) {column.Nullable}) en la Tabla: [{table.Name}] en [{masterDatabase}]");
+                        //}
+                    }
+                }
+            }
             #endregion
 
             if (!Error)
